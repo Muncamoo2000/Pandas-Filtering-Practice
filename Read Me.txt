@@ -1,0 +1,22 @@
+# Pandas Filtering Practice
+
+Simple beginner exercises practicing the most common Pandas pattern:
+
+**Boolean Filtering + Aggregation**
+
+(Select rows that meet a condition → then calculate mean / sum / max / count)
+
+---
+
+## The Pattern
+
+```python
+# Classic style
+mask = df["column"] == "value"
+result = df[mask]["other_column"].mean()   # or .sum() / .max() / .count()
+
+# Modern one-liner
+result = df.loc[df["column"] == "value", "other_column"].mean()
+
+# Using query()
+result = df.query("column == 'value'")["other_column"].mean()
